@@ -17,8 +17,12 @@ public class RetakeService {
         return retakeRepository.findAllBy();
     }
 
-    public void addRetake(Integer maxCount, String subject){
+    public void addRetake(Integer maxCount, String subject, String sDate){
         Date date = new Date();
+        String[] data = sDate.split("-");
+        date.setDate(Integer.parseInt(data[2]));
+        date.setMonth(Integer.parseInt(data[1]));
+        date.setYear(Integer.parseInt(data[0]));
         Retake retake = new Retake();
         retake.setDate(date);
         retake.setMaxCount(maxCount);

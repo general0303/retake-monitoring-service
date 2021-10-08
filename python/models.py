@@ -24,4 +24,3 @@ class Retakes(db.Model):
     max_count = db.Column(db.INTEGER)
     subject = db.Column(db.String)
     date = db.Column(db.DATETIME)
-

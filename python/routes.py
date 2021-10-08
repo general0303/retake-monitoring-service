@@ -1,20 +1,25 @@
 from init import app, db
 from models import Retakes, Students
+from flask import request
 
 
-@app.route('/give_access/<number>/<id>')
-def give_access(number, id):
-    student = Students.query.get(number)
-    retake = Retakes.query.get(id)
+def create_link():
+    student = Students.query.get(request.form['number'])
+    retake = Retakes.query.get(request.form['retake_id'])
+    return student, retake
+
+
+@app.route('/give_access', methods=['POST'])
+def give_access():
+    student, retake = create_link()
     student.retakes.append(retake)
     db.session.commit()
     return 'ok'
 
 
-@app.route('/sign_up_for_retake/<number>/<id>')
-def sign_up_for_retake(number, id):
-    student = Students.query.get(number)
-    retake = Retakes.query.get(id)
+@app.route('/sign_up_for_retake', methods=['POST'])
+def sign_up_for_retake():
+    student, retake = create_link()
     student.recorded_retakes.append(retake)
     db.session.commit()
     return 'ok'
@@ -26,4 +31,3 @@ def all_records(number):
     print(student.retakes)
     print(student.recorded_retakes)
     return 'ok'
-
