@@ -21,8 +21,8 @@ public class RetakeService {
         Date date = new Date();
         String[] data = sDate.split("-");
         date.setDate(Integer.parseInt(data[2]));
-        date.setMonth(Integer.parseInt(data[1]));
-        date.setYear(Integer.parseInt(data[0]));
+        date.setMonth(Integer.parseInt(data[1])-1);
+        date.setYear(Integer.parseInt(data[0])-1900);
         Retake retake = new Retake();
         retake.setDate(date);
         retake.setMaxCount(maxCount);

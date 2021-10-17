@@ -14,7 +14,7 @@ def give_access():
     student, retake = create_link()
     student.retakes.append(retake)
     db.session.commit()
-    return 'ok'
+    return redirect("http://localhost:8081")
 
 
 @app.route('/sign_up_for_retake', methods=['POST'])
@@ -26,6 +26,7 @@ def sign_up_for_retake():
     return redirect(url_for('all_records', number=student.number))
 
 
-@app.route('/<number>/all_retakes')
-def all_records(number):
+@app.route('/all_retakes', methods=['GET'])
+def all_records():
+    number = request.args.get('number')
     return render_template("retakes.html", student=Students.query.get(number))

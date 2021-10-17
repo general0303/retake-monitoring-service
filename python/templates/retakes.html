@@ -17,7 +17,7 @@
         {% for retake in student.retakes %}
             <tr>
                 <th>{{ retake.subject }}</th>
-                <th>{{ retake.date }}</th>
+                <th>{{ retake.date.strftime('%d %B %Y') }}</th>
                 <th>{{ retake.max_count }}</th>
                 <th>
                     {% if retake in student.recorded_retakes %}

@@ -41,10 +41,10 @@ public class AppController {
     }
 
     @PostMapping(path = "/add_student")
-    public @ResponseBody String addStudent(@RequestParam String studentNumber, @RequestParam String firstName,
+    public String addStudent(@RequestParam String studentNumber, @RequestParam String firstName,
                                            @RequestParam String secondName){
         studentService.addStudent(studentNumber, firstName, secondName);
-        return "ok";
+        return "redirect:/";
     }
 
     @RequestMapping(path="/all_students")
@@ -64,11 +64,10 @@ public class AppController {
     }
 
     @PostMapping(path="/add_retake")
-    public @ResponseBody String addRetake(@RequestParam Integer maxCount, @RequestParam String subject,
+    public String addRetake(@RequestParam Integer maxCount, @RequestParam String subject,
                                           @RequestParam String date){
-        System.out.println(date);
         retakeService.addRetake(maxCount, subject, date);
-        return "ok";
+        return "redirect:/";
     }
 
     @RequestMapping(path="/all_retakes")
