@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+    <title>Retakes</title>
+</head>
+<body>
+    <table class="tableOne" align="center" border="5" cellpadding="20">
+        <tr>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Places left</th>
+            <th>Sign up</th>
+        </tr>
+        {% for retake in student.retakes %}
+            <tr>
+                <th>{{ retake.subject }}</th>
+                <th>{{ retake.date }}</th>
+                <th>{{ retake.max_count }}</th>
+                <th>
+                    {% if retake in student.recorded_retakes %}
+                        <p>You are already signed up</p>
+                    {% elif retake.max_count <= 0 %}
+                        <p>No seats left</p>
+                    {% else %}
+                        <form method="post" action="{{ url_for('sign_up_for_retake') }}">
+                            <input type="hidden" name="number" value="{{ student.number }}" />
+                            <input type="hidden" name="retake_id" value="{{ retake.id }}" />
+                            <p><input type="submit" value="Sign up" /></p>
+                        </form>
+                    {% endif %}
+                </th>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

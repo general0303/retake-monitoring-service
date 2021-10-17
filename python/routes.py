@@ -1,6 +1,6 @@
 from init import app, db
 from models import Retakes, Students
-from flask import request
+from flask import request, render_template, redirect, url_for
 
 
 def create_link():
@@ -21,13 +21,11 @@ def give_access():
 def sign_up_for_retake():
     student, retake = create_link()
     student.recorded_retakes.append(retake)
+    retake.max_count -= 1
     db.session.commit()
-    return 'ok'
+    return redirect(url_for('all_records', number=student.number))
 
 
 @app.route('/<number>/all_retakes')
 def all_records(number):
-    student = Students.query.get(number)
-    print(student.retakes)
-    print(student.recorded_retakes)
-    return 'ok'
+    return render_template("retakes.html", student=Students.query.get(number))
