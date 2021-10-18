@@ -1,0 +1,42 @@
+version: "3.5"
+
+services:
+  web_java:
+    image: retake_monitoring_service_java
+    ports:
+    - "8081:8081"
+    depends_on:
+      - db
+  web_python:
+    image: retake_monitoring_service_python
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  web_go:
+    image: retake_monitoring_service_go
+    ports:
+      - "80:80"
+    depends_on:
+      - web_java
+      - web_python
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    restart: always
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8080:80
+    restart: always
+    depends_on:
+      - db
+volumes:
+  dbdata:
+
+
