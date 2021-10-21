@@ -27,6 +27,7 @@ public class StudentService {
         student.setNumber(number);
         student.setFirstName(firstName);
         student.setSecondName(secondName);
+        student.setPassword("11111");
         studentRepository.save(student);
     }
 

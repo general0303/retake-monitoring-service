@@ -8,7 +8,10 @@ import java.util.List;
 @Table(name = "students")
 public class Student {
     @Id
-    @Column(name="number")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name="number", unique = true)
     private String number;
 
     public void setNumber(String number) {
@@ -39,6 +42,17 @@ public class Student {
 
     public String getSecondName() {
         return secondName;
+    }
+
+    @Column(name="password")
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @ManyToMany(fetch = FetchType.LAZY,

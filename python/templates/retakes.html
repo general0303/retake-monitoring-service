@@ -7,6 +7,11 @@
     <title>Retakes</title>
 </head>
 <body>
+    <a href="{{ url_for('logout') }}">logout</a>
+    <form method="get" action="{{ url_for('change_password') }}">
+        <input type="hidden" name="number" value="{{ student.number }}" />
+        <p><input type="submit" value="change password" /></p>
+    </form>
     <table class="tableOne" align="center" border="5" cellpadding="20">
         <tr>
             <th>Subject</th>
