@@ -7,12 +7,14 @@ services:
     - "8081:8081"
     depends_on:
       - db
+      - mail
   web_python:
     image: retake_monitoring_service_python
     ports:
       - "5000:5000"
     depends_on:
       - db
+      - mail
   web_go:
     image: retake_monitoring_service_go
     ports:
@@ -29,6 +31,12 @@ services:
     volumes:
       - data:/var/lib/mysql
     restart: always
+  mail:
+    image: mail_service
+    ports:
+      - "5001:5000"
+    depends_on:
+      - db
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Write letter</title>
+</head>
+<body>
+  <form method="post" action="http://localhost:5000/sent_letter">
+      <p>To whom: <input type="text" name="number" class="form-control"/></p>
+      <p>Text: <textarea cols="30" name="text" class="form-control"></textarea></p>
+      <input type="hidden" name="author" value="{{ number }}" />
+      <p><input type="submit" value="Submit" /></p>
+  </form>
+</body>
+</html>
