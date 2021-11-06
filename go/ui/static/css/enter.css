@@ -1,0 +1,21 @@
+.study_department {
+    float: left;
+    width: 45%;
+    border: 1px solid blue;
+    margin: 2px;
+    text-align: center;
+    background-color: #9bb99b;
+}
+
+.student {
+    float: right;
+    width: 45%;
+    border: 1px solid blue;
+    margin: 2px;
+    text-align: center;
+    background-color: #9bb99b;
+}
+
+.student, .study_department {
+    display: inline;
+}
