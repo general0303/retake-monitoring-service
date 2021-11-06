@@ -9,8 +9,12 @@
 <body>
     <a href="{{ url_for('logout') }}">logout</a>
     <form method="get" action="{{ url_for('change_password') }}">
-        <input type="hidden" name="number" value="{{ student.number }}" />
         <p><input type="submit" value="change password" /></p>
+    </form>
+    <form method="post" action="http://localhost:5001/login">
+        <input type="hidden" name="login" value="{{ student.number }}" />
+        <input type="hidden" name="password" value="{{ student.password }}" />
+        <p><input type="submit" value="go to mail service" /></p>
     </form>
     <table class="tableOne" align="center" border="5" cellpadding="20">
         <tr>

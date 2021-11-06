@@ -22,5 +22,5 @@ class Scribe(db.Model, UserMixin):
 
 
 @login.user_loader
-def load_user(number):
-    return Scribe.query.filter_by(number=number).first()
+def load_user(scribe_id):
+    return Scribe.query.get(scribe_id)

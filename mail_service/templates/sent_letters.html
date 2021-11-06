@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+    <title>Sent emails</title>
+</head>
+<body>
+    <h1>Sent emails</h1>
+    <a href="{{ url_for('logout') }}">logout</a><br>
+    <a href="{{ url_for('write_letter') }}">write_letter</a><br>
+    <a href="{{ url_for('index') }}">incoming mail</a>
+    <table class="tableOne" align="center" border="5" cellpadding="20">
+        <tr>
+            <th>Recipient</th>
+            <th>Text</th>
+        </tr>
+        {% for letter in scribe.sent_letters %}
+            <tr>
+                <th>{{ letter.recipient.number }}</th>
+                <th><a href="{{ url_for('letter', letter_id=letter.id) }}">{{ letter.text[:15] }}...</a></th>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
-    <title>Write letter</title>
+    <title>Letter</title>
 </head>
 <body>
-  <form method="post" action="{{ url_for('sent_letter') }}">
-      <p>To whom: <input type="text" name="number" class="form-control"/></p>
-      <p>Text: <textarea cols="30" name="text" class="form-control"></textarea></p>
-      <p><input type="submit" value="Submit" /></p>
-  </form>
+    <h1>Author: {{ letter.author.number }}</h1>
+    <div class="text">
+        <p>{{ letter.text }}</p>
+    </div>
 </body>
 </html>

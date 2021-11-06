@@ -5,10 +5,13 @@ import com.example.Entities.Retake;
 import com.example.Entities.Student;
 import com.example.Services.RetakeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +23,11 @@ public class AppController {
     RetakeService retakeService;
 
     @RequestMapping(path = "/")
-    public @ResponseBody String index(){
+    public String index(Model model, Principal principal){
+        String login = principal.getName();
+        String password = "111111";
+        model.addAttribute("login", login);
+        model.addAttribute("password", password);
         return "index";
     }
 

@@ -1,8 +1,10 @@
 package com.example.Services;
 
 import com.example.Entities.Retake;
+import com.example.Entities.Scribe;
 import com.example.Entities.Student;
 import com.example.Repositories.RetakeRepository;
+import com.example.Repositories.ScribeRepository;
 import com.example.Repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class StudentService {
     StudentRepository studentRepository;
     @Autowired
     RetakeRepository retakeRepository;
+    @Autowired
+    ScribeRepository scribeRepository;
 
     public List<Student> allStudents(){
         return studentRepository.findAllBy();
@@ -28,7 +32,11 @@ public class StudentService {
         student.setFirstName(firstName);
         student.setSecondName(secondName);
         student.setPassword("11111");
+        Scribe scribe = new Scribe();
+        scribe.setNumber(number);
+        scribe.setPassword("11111");
         studentRepository.save(student);
+        scribeRepository.save(scribe);
     }
 
     public List<Retake> allRetakes(String number){

@@ -13,8 +13,16 @@ public class Scribe {
     @Column(name="number", unique = true)
     private String number;
 
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     @Column(name="password")
     private String password;
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @OneToMany (cascade=CascadeType.ALL, mappedBy = "author")
     private List<Letter> sent_letter;

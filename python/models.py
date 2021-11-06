@@ -27,8 +27,17 @@ class Students(db.Model, UserMixin):
 
 
 @login.user_loader
-def load_user(number):
-    return Students.query.filter_by(number=number).first()
+def load_user(student_id):
+    return Students.query.get(student_id)
+
+
+class Scribe(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    number = db.Column(db.String, unique=True)
+    password = db.Column(db.String)
+
+    def set_password(self, password):
+        self.password = password
 
 
 class Retakes(db.Model):
