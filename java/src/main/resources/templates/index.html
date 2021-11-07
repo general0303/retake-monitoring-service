@@ -1,24 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Real Estate Agency</title>
+    <title>Main page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content>
     <meta name="author" content>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="http://localhost/static/css/header.css" rel="stylesheet">
+    <link href="http://localhost/static/css/table.css" rel="stylesheet">
+    <link href="http://localhost/static/css/menu.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Real Estate Agency</h1>
-    <a href="http://localhost/">logout</a><br>
-    <a href="/add_new_student">Add new student</a><br>
-    <a href="/add_new_retake">Add new retake</a><br>
-    <a href="/give_access">Give access student to retake</a><br>
-    <form method="post" action="http://localhost:5001/login">
-        <input type="hidden" name="login" th:value="*{login}" class="form-control"/>
-        <input type="hidden" name="password" th:value="*{password}" class="form-control"/>
-        <input type="submit" value="go to mail service" />
-    </form>
+<header>
+    <div class="title">
+        <h1>Main page</h1>
+    </div>
+    <div class="information">
+        <img src="http://localhost/static/img/department.png" width="72"><br>
+        Your login:
+        <p th:text="*{login}"></p>
+    </div><br>
+</header>
+    <div class="menu">
+        <form action="http://localhost" method="get">
+            <p><input class="sub" type="submit" value="logout" /></p>
+        </form>
+        <form action="/add_new_student" method="get">
+            <p><input class="sub" type="submit" value="Add new student" /></p>
+        </form>
+        <form action="/add_new_retake" method="get">
+            <p><input class="sub" type="submit" value="Add_new_retake" /></p>
+        </form>
+        <form action="/give_access" method="get">
+            <p><input class="sub" type="submit" value="Give access to student to the retake" /></p>
+        </form>
+        <form method="post" action="http://localhost:5001/login">
+            <input type="hidden" name="login" th:value="*{login}" class="form-control"/>
+            <input type="hidden" name="password" th:value="*{password}" class="form-control"/>
+            <input class="sub" type="submit" value="go to mail service" />
+        </form>
+    </div>
 </body>
 </html>

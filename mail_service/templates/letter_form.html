@@ -7,10 +7,17 @@
     <title>Write letter</title>
 </head>
 <body>
-  <form method="post" action="{{ url_for('sent_letter') }}">
-      <p>To whom: <input type="text" name="number" class="form-control"/></p>
-      <p>Text: <textarea cols="30" name="text" class="form-control"></textarea></p>
-      <p><input type="submit" value="Submit" /></p>
-  </form>
+  <form class="form-signin" role="form" action="{{ url_for('sent_letter') }}" method="post" style="max-width: 500px">
+        <h2 class="form-signin-heading">Write letter</h2>
+        <p>
+            <label for="number" class="sr-only">Student number</label>
+            <input type="text" id="number" name="number" class="form-control" placeholder="To whom" required autofocus>
+        </p>
+        <p>
+            <label for="text" class="sr-only">Text</label>
+            <textarea id="text" rows="9" name="text" class="form-control" placeholder="Text" required></textarea>
+        </p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sent</button>
+    </form>
 </body>
 </html>
