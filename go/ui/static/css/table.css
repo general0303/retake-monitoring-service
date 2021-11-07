@@ -1,0 +1,18 @@
+table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px black;
+    background-color: #9bb99b;
+}
+th {
+    padding: 3px;
+    text-align: center;
+}
+
+.sub_table {
+    background-color: #7fc8ff;
+}
+
+.sub {
+    background-color: #b4e1ff;
+}

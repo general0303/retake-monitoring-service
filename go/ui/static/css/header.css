@@ -7,10 +7,8 @@
 .information {
     float: right;
     width: 15%;
-    border: 1px solid blue;
     margin: 2px;
     text-align: center;
-    background-color: #9bb99b;
 }
 
 .title, .information {

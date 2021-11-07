@@ -5,6 +5,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
     <link href="http://localhost/static/css/header.css" rel="stylesheet">
+    <link href="http://localhost/static/css/table.css" rel="stylesheet">
     <title>Retakes</title>
 </head>
 <body>
@@ -13,18 +14,20 @@
             <h1>Schedule of retakes available to you</h1>
         </div>
         <div class="information">
-            <p>Your number: {{ current_user.number }}</p>
             <img src="http://localhost/static/img/student.png" width="52">
+            <p>Your number: {{ current_user.number }}</p>
         </div><br>
     </header>
-    <a href="{{ url_for('logout') }}">logout</a>
+    <form action="{{ url_for('logout') }}" method="get">
+        <p><input class="sub" type="submit" value="logout" /></p>
+    </form>
     <form method="get" action="{{ url_for('change_password') }}">
-        <p><input type="submit" value="change password" /></p>
+        <p><input class="sub" type="submit" value="change password" /></p>
     </form>
     <form method="post" action="http://localhost:5001/login">
         <input type="hidden" name="login" value="{{ student.number }}" />
         <input type="hidden" name="password" value="{{ student.password }}" />
-        <p><input type="submit" value="go to mail service" /></p>
+        <p><input class="sub" type="submit" value="go to mail service" /></p>
     </form>
     <table class="tableOne" align="center" border="5" cellpadding="20">
         <tr>
@@ -40,14 +43,14 @@
                 <th>{{ retake.max_count }}</th>
                 <th>
                     {% if retake in student.recorded_retakes %}
-                        <p>You are already signed up</p>
+                        You are already signed up
                     {% elif retake.max_count <= 0 %}
-                        <p>No seats left</p>
+                        No seats left
                     {% else %}
                         <form method="post" action="{{ url_for('sign_up_for_retake') }}">
                             <input type="hidden" name="number" value="{{ student.number }}" />
                             <input type="hidden" name="retake_id" value="{{ retake.id }}" />
-                            <p><input type="submit" value="Sign up" /></p>
+                            <input class="sub_table" type="submit" value="Sign up" />
                         </form>
                     {% endif %}
                 </th>

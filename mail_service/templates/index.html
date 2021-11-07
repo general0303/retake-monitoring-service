@@ -4,13 +4,25 @@
     <meta charset="UTF-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="http://localhost/static/css/header.css" rel="stylesheet">
+    <link href="http://localhost/static/css/table.css" rel="stylesheet">
     <title>Incoming mail</title>
 </head>
 <body>
-    <h1>Incoming mail</h1>
-    <a href="{{ url_for('logout') }}">logout</a><br>
-    <a href="{{ url_for('write_letter') }}">write_letter</a><br>
-    <a href="{{ url_for('sent_letters') }}">sent emails</a>
+    <header>
+        <div class="title">
+            <h1>Incoming mail</h1>
+        </div>
+    </header>
+    <form action="{{ url_for('logout') }}" method="get">
+        <p><input class="sub" type="submit" value="logout" /></p>
+    </form>
+    <form action="{{ url_for('write_letter') }}" method="get">
+        <p><input class="sub" type="submit" value="write letter" /></p>
+    </form>
+    <form action="{{ url_for('sent_letters') }}" method="get">
+        <p><input class="sub" type="submit" value="sent emails" /></p>
+    </form>
     <table class="tableOne" align="center" border="5" cellpadding="20">
         <tr>
             <th>Author</th>
@@ -18,7 +30,7 @@
         </tr>
         {% for letter in scribe.received_letters %}
             <tr>
-                <th>{{ letter.author.number }}</th>
+                <th width="100px">{{ letter.author.number }}</th>
                 <th><a href="{{ url_for('letter', letter_id=letter.id) }}">{{ letter.text[:15] }}...</a></th>
             </tr>
         {% endfor %}
