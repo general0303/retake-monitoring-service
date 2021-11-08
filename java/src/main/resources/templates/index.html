@@ -11,9 +11,24 @@
     <link href="http://localhost/static/css/header.css" rel="stylesheet">
     <link href="http://localhost/static/css/table.css" rel="stylesheet">
     <link href="http://localhost/static/css/menu.css" rel="stylesheet">
+    <link href="http://localhost/static/css/translate.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="http://localhost/static/js/google-translate.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=TranslateInit"></script>
 </head>
 <body>
 <header>
+    <div class="language">
+        <div class="dropdown">
+            <div class="dropbtn">choose language
+                <div class="dropdown-content" style="color: black">
+                    <a><b data-google-lang="ru">russian</b></a>
+                    <a><b data-google-lang="de">german</b></a>
+                    <a><b data-google-lang="en">english</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="title">
         <h1>Main page</h1>
     </div>
@@ -31,10 +46,10 @@
             <p><input class="sub" type="submit" value="Add new student" /></p>
         </form>
         <form action="/add_new_retake" method="get">
-            <p><input class="sub" type="submit" value="Add_new_retake" /></p>
+            <p><input class="sub" type="submit" value="Add new retake" /></p>
         </form>
         <form action="/give_access" method="get">
-            <p><input class="sub" type="submit" value="Give access to student to the retake" /></p>
+            <p><input class="sub" type="submit" value="Give access to student for the retake" /></p>
         </form>
         <form method="post" action="http://localhost:5001/login">
             <input type="hidden" name="login" th:value="*{login}" class="form-control"/>

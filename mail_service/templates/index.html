@@ -6,10 +6,25 @@
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
     <link href="http://localhost/static/css/header.css" rel="stylesheet">
     <link href="http://localhost/static/css/table.css" rel="stylesheet">
+    <link href="http://localhost/static/css/translate.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="http://localhost/static/js/google-translate.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=TranslateInit"></script>
     <title>Incoming mail</title>
 </head>
 <body>
     <header>
+        <div class="language">
+        <div class="dropdown">
+            <div class="dropbtn">choose language
+                <div class="dropdown-content" style="color: black">
+                    <a><b data-google-lang="ru">russian</b></a>
+                    <a><b data-google-lang="de">german</b></a>
+                    <a><b data-google-lang="en">english</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
         <div class="title">
             <h1>Incoming mail</h1>
         </div>

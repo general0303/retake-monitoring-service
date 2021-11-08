@@ -6,9 +6,24 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
   <link href="../static/css/enter.css" rel="stylesheet">
+  <link href="../static/css/translate.css" rel="stylesheet">
   <title>Retake monitoring service</title>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+  <script src="../static/js/google-translate.js"></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=TranslateInit"></script>
 </head>
 <body>
+<div class="language">
+  <div class="dropdown">
+    <div class="dropbtn">choose language
+      <div class="dropdown-content" style="color: black">
+        <a><b data-google-lang="ru">russian</b></a>
+        <a><b data-google-lang="de">german</b></a>
+        <a><b data-google-lang="en">english</b></a>
+      </div>
+    </div>
+  </div>
+</div>
   <main>
     <div class="study_department">
       <h2><a href='http://localhost:8081/'>Continue as study department</a></h2>
@@ -16,7 +31,7 @@
     </div>
     <div class="student">
       <h2><a href="http://localhost/get_student_number">Here you can view your retake schedule</a></h2>
-      <a href="http://localhost/get_student_number"><img src="../static/img/student.png" width="510"></a>
+      <a href="http://localhost/get_student_number"><img src="../static/img/student.png" width="475"></a>
     </div>
   </main>
 </body>
