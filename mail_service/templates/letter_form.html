@@ -23,7 +23,7 @@
         </div>
   </div>
   <form class="form-signin" role="form" action="{{ url_for('sent_letter') }}" method="post" style="max-width: 500px">
-        <h2 class="form-signin-heading">Write letter</h2>
+        <h2 class="form-signin-heading">To write letter</h2>
         <p>
             <label for="number" class="sr-only">Student number</label>
             <input type="text" id="number" name="number" class="form-control" placeholder="To whom" required autofocus>
@@ -32,7 +32,7 @@
             <label for="text" class="sr-only">Text</label>
             <textarea id="text" rows="9" name="text" class="form-control" placeholder="Text" required></textarea>
         </p>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sent</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">To sent</button>
     </form>
 </body>
 </html>

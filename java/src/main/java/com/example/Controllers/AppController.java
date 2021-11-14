@@ -5,8 +5,6 @@ import com.example.Entities.Retake;
 import com.example.Entities.Student;
 import com.example.Services.RetakeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -99,6 +97,15 @@ public class AppController {
         Integer retakeId = 1;
         model.addAttribute("retakeId", retakeId);
         return "open_access";
+    }
+
+    @RequestMapping(path = "/close_access")
+    public String closeAccess(Model model){
+        String studentNumber = "";
+        model.addAttribute("studentNumber", studentNumber);
+        Integer retakeId = 1;
+        model.addAttribute("retakeId", retakeId);
+        return "close_access";
     }
 
     @RequestMapping(path = "/sign_up_for_retake")

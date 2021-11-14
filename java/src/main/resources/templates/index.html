@@ -51,6 +51,9 @@
         <form action="/give_access" method="get">
             <p><input class="sub" type="submit" value="Give access to student for the retake" /></p>
         </form>
+        <form action="/close_access" method="get">
+            <p><input class="sub" type="submit" value="Close access to student to retake" /></p>
+        </form>
         <form method="post" action="http://localhost:5001/login">
             <input type="hidden" name="login" th:value="*{login}" class="form-control"/>
             <input type="hidden" name="password" th:value="*{password}" class="form-control"/>

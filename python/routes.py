@@ -46,8 +46,19 @@ def set_password():
 @app.route('/give_access', methods=['POST'])
 def give_access():
     student, retake = create_link()
-    student.retakes.append(retake)
-    db.session.commit()
+    if student is not None and retake is not None:
+        student.retakes.append(retake)
+        db.session.commit()
+    return redirect("http://localhost:8081")
+
+
+@app.route('/close_access', methods=['POST'])
+def close_access():
+    student, retake = create_link()
+    if student is not None and retake is not None:
+        if retake in student.retakes:
+            student.retakes.remove(retake)
+            db.session.commit()
     return redirect("http://localhost:8081")
 
 
